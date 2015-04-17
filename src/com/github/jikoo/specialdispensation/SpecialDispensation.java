@@ -26,16 +26,19 @@ public class SpecialDispensation extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		BlockDispenser.N.a(Items.WHEAT_SEEDS, new CropDispenseBehavior(Blocks.WHEAT));
-		BlockDispenser.N.a(Items.POTATO, new CropDispenseBehavior(Blocks.POTATOES));
-		BlockDispenser.N.a(Items.CARROT, new CropDispenseBehavior(Blocks.CARROTS));
+		BlockDispenser.N.a(Items.WHEAT_SEEDS, new CropDispenseBehavior(Blocks.WHEAT, Blocks.FARMLAND));
+		BlockDispenser.N.a(Items.POTATO, new CropDispenseBehavior(Blocks.POTATOES, Blocks.FARMLAND));
+		BlockDispenser.N.a(Items.CARROT, new CropDispenseBehavior(Blocks.CARROTS, Blocks.FARMLAND));
+		BlockDispenser.N.a(Items.NETHER_WART, new CropDispenseBehavior(Blocks.NETHER_WART, Blocks.SOUL_SAND));
 	}
 
 	private class CropDispenseBehavior extends DispenseBehaviorItem {
 
-		private final Block nmsBlock;
-		public CropDispenseBehavior(Block block) {
-			this.nmsBlock = block;
+		private final Block cropBlock;
+		private final Block soilBlock;
+		public CropDispenseBehavior(Block cropBlock, Block soilBlock) {
+			this.cropBlock = cropBlock;
+			this.soilBlock = soilBlock;
 		}
 
 		private boolean b = true;
@@ -72,8 +75,9 @@ public class SpecialDispensation extends JavaPlugin {
 
 			--itemstack.count;
 
-			if (toCrop.getY() > 0 && world.isEmpty(toCrop) && world.getType(toCrop.down()).getBlock() == Blocks.FARMLAND) {
-				world.setTypeUpdate(toCrop, nmsBlock.getBlockData());
+			if (toCrop.getY() > 0 && world.isEmpty(toCrop) && world.getType(toCrop.down()).getBlock() == soilBlock) {
+				world.setTypeUpdate(toCrop, cropBlock.getBlockData());
+				this.b = true;
 			} else {
 				this.b = false;
 			}
