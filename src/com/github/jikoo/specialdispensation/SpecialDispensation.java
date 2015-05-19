@@ -4,18 +4,18 @@ import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import org.bukkit.craftbukkit.v1_8_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 
-import net.minecraft.server.v1_8_R2.Block;
-import net.minecraft.server.v1_8_R2.BlockDispenser;
-import net.minecraft.server.v1_8_R2.BlockPosition;
-import net.minecraft.server.v1_8_R2.Blocks;
-import net.minecraft.server.v1_8_R2.DispenseBehaviorItem;
-import net.minecraft.server.v1_8_R2.IDispenseBehavior;
-import net.minecraft.server.v1_8_R2.ISourceBlock;
-import net.minecraft.server.v1_8_R2.ItemStack;
-import net.minecraft.server.v1_8_R2.Items;
-import net.minecraft.server.v1_8_R2.World;
+import net.minecraft.server.v1_8_R3.Block;
+import net.minecraft.server.v1_8_R3.BlockDispenser;
+import net.minecraft.server.v1_8_R3.BlockPosition;
+import net.minecraft.server.v1_8_R3.Blocks;
+import net.minecraft.server.v1_8_R3.DispenseBehaviorItem;
+import net.minecraft.server.v1_8_R3.IDispenseBehavior;
+import net.minecraft.server.v1_8_R3.ISourceBlock;
+import net.minecraft.server.v1_8_R3.ItemStack;
+import net.minecraft.server.v1_8_R3.Items;
+import net.minecraft.server.v1_8_R3.World;
 
 /**
  * Manual planting is for chumps.
