@@ -26,10 +26,10 @@ public class SpecialDispensation extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		BlockDispenser.N.a(Items.WHEAT_SEEDS, new CropDispenseBehavior(Blocks.WHEAT, Blocks.FARMLAND));
-		BlockDispenser.N.a(Items.POTATO, new CropDispenseBehavior(Blocks.POTATOES, Blocks.FARMLAND));
-		BlockDispenser.N.a(Items.CARROT, new CropDispenseBehavior(Blocks.CARROTS, Blocks.FARMLAND));
-		BlockDispenser.N.a(Items.NETHER_WART, new CropDispenseBehavior(Blocks.NETHER_WART, Blocks.SOUL_SAND));
+		BlockDispenser.REGISTRY.a(Items.WHEAT_SEEDS, new CropDispenseBehavior(Blocks.WHEAT, Blocks.FARMLAND));
+		BlockDispenser.REGISTRY.a(Items.POTATO, new CropDispenseBehavior(Blocks.POTATOES, Blocks.FARMLAND));
+		BlockDispenser.REGISTRY.a(Items.CARROT, new CropDispenseBehavior(Blocks.CARROTS, Blocks.FARMLAND));
+		BlockDispenser.REGISTRY.a(Items.NETHER_WART, new CropDispenseBehavior(Blocks.NETHER_WART, Blocks.SOUL_SAND));
 	}
 
 	private class CropDispenseBehavior extends DispenseBehaviorItem {
@@ -45,7 +45,7 @@ public class SpecialDispensation extends JavaPlugin {
 
 		@Override
 		protected ItemStack b(ISourceBlock isourceblock, ItemStack itemstack) {
-			World world = isourceblock.i();
+			World world = isourceblock.getWorld();
 			BlockPosition toCrop = isourceblock.getBlockPosition().shift(BlockDispenser.b(isourceblock.f()));
 
 			org.bukkit.block.Block block = world.getWorld().getBlockAt(
@@ -66,8 +66,8 @@ public class SpecialDispensation extends JavaPlugin {
 
 			if (!event.getItem().equals(craftItem)) {
 				ItemStack eventStack = CraftItemStack.asNMSCopy(event.getItem());
-				IDispenseBehavior idispensebehavior = BlockDispenser.N.get(eventStack.getItem());
-				if (idispensebehavior != IDispenseBehavior.a && idispensebehavior != this) {
+				IDispenseBehavior idispensebehavior = BlockDispenser.REGISTRY.get(eventStack.getItem());
+				if (idispensebehavior != IDispenseBehavior.NONE && idispensebehavior != this) {
 					idispensebehavior.a(isourceblock, eventStack);
 					return itemstack;
 				}
@@ -88,9 +88,9 @@ public class SpecialDispensation extends JavaPlugin {
 		@Override
 		protected void a(ISourceBlock isourceblock) {
 			if (this.b) {
-				isourceblock.i().triggerEffect(1000, isourceblock.getBlockPosition(), 0);
+				isourceblock.getWorld().triggerEffect(1000, isourceblock.getBlockPosition(), 0);
 			} else {
-				isourceblock.i().triggerEffect(1001, isourceblock.getBlockPosition(), 0);
+				isourceblock.getWorld().triggerEffect(1001, isourceblock.getBlockPosition(), 0);
 			}
 		}
 	};
