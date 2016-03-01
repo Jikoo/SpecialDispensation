@@ -4,18 +4,18 @@ import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
 
-import net.minecraft.server.v1_8_R3.Block;
-import net.minecraft.server.v1_8_R3.BlockDispenser;
-import net.minecraft.server.v1_8_R3.BlockPosition;
-import net.minecraft.server.v1_8_R3.Blocks;
-import net.minecraft.server.v1_8_R3.DispenseBehaviorItem;
-import net.minecraft.server.v1_8_R3.IDispenseBehavior;
-import net.minecraft.server.v1_8_R3.ISourceBlock;
-import net.minecraft.server.v1_8_R3.ItemStack;
-import net.minecraft.server.v1_8_R3.Items;
-import net.minecraft.server.v1_8_R3.World;
+import net.minecraft.server.v1_9_R1.Block;
+import net.minecraft.server.v1_9_R1.BlockDispenser;
+import net.minecraft.server.v1_9_R1.BlockPosition;
+import net.minecraft.server.v1_9_R1.Blocks;
+import net.minecraft.server.v1_9_R1.DispenseBehaviorItem;
+import net.minecraft.server.v1_9_R1.IDispenseBehavior;
+import net.minecraft.server.v1_9_R1.ISourceBlock;
+import net.minecraft.server.v1_9_R1.ItemStack;
+import net.minecraft.server.v1_9_R1.Items;
+import net.minecraft.server.v1_9_R1.World;
 
 /**
  * Manual planting is for chumps.
@@ -46,7 +46,7 @@ public class SpecialDispensation extends JavaPlugin {
 		@Override
 		protected ItemStack b(ISourceBlock isourceblock, ItemStack itemstack) {
 			World world = isourceblock.getWorld();
-			BlockPosition toCrop = isourceblock.getBlockPosition().shift(BlockDispenser.b(isourceblock.f()));
+			BlockPosition toCrop = isourceblock.getBlockPosition().shift(BlockDispenser.e(isourceblock.f()));
 
 			org.bukkit.block.Block block = world.getWorld().getBlockAt(
 					isourceblock.getBlockPosition().getX(),
