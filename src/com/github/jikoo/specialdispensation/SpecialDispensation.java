@@ -4,8 +4,6 @@ import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
-
 import net.minecraft.server.v1_9_R1.Block;
 import net.minecraft.server.v1_9_R1.BlockDispenser;
 import net.minecraft.server.v1_9_R1.BlockPosition;
@@ -16,6 +14,8 @@ import net.minecraft.server.v1_9_R1.ISourceBlock;
 import net.minecraft.server.v1_9_R1.ItemStack;
 import net.minecraft.server.v1_9_R1.Items;
 import net.minecraft.server.v1_9_R1.World;
+
+import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
 
 /**
  * Manual planting is for chumps.
@@ -29,6 +29,7 @@ public class SpecialDispensation extends JavaPlugin {
 		BlockDispenser.REGISTRY.a(Items.WHEAT_SEEDS, new CropDispenseBehavior(Blocks.WHEAT, Blocks.FARMLAND));
 		BlockDispenser.REGISTRY.a(Items.POTATO, new CropDispenseBehavior(Blocks.POTATOES, Blocks.FARMLAND));
 		BlockDispenser.REGISTRY.a(Items.CARROT, new CropDispenseBehavior(Blocks.CARROTS, Blocks.FARMLAND));
+		BlockDispenser.REGISTRY.a(Items.BEETROOT_SEEDS, new CropDispenseBehavior(Blocks.BEETROOT, Blocks.FARMLAND));
 		BlockDispenser.REGISTRY.a(Items.NETHER_WART, new CropDispenseBehavior(Blocks.NETHER_WART, Blocks.SOUL_SAND));
 	}
 
