@@ -1,19 +1,19 @@
 package com.github.jikoo.specialdispensation;
 
-import net.minecraft.server.v1_9_R2.Block;
-import net.minecraft.server.v1_9_R2.BlockCocoa;
-import net.minecraft.server.v1_9_R2.BlockDispenser;
-import net.minecraft.server.v1_9_R2.BlockLog1;
-import net.minecraft.server.v1_9_R2.BlockPosition;
-import net.minecraft.server.v1_9_R2.BlockWood.EnumLogVariant;
-import net.minecraft.server.v1_9_R2.Blocks;
-import net.minecraft.server.v1_9_R2.EnumColor;
-import net.minecraft.server.v1_9_R2.EnumDirection;
-import net.minecraft.server.v1_9_R2.IBlockData;
-import net.minecraft.server.v1_9_R2.ISourceBlock;
-import net.minecraft.server.v1_9_R2.ItemDye;
-import net.minecraft.server.v1_9_R2.ItemStack;
-import net.minecraft.server.v1_9_R2.World;
+import net.minecraft.server.v1_10_R1.Block;
+import net.minecraft.server.v1_10_R1.BlockCocoa;
+import net.minecraft.server.v1_10_R1.BlockDispenser;
+import net.minecraft.server.v1_10_R1.BlockLog1;
+import net.minecraft.server.v1_10_R1.BlockPosition;
+import net.minecraft.server.v1_10_R1.BlockWood.EnumLogVariant;
+import net.minecraft.server.v1_10_R1.Blocks;
+import net.minecraft.server.v1_10_R1.EnumColor;
+import net.minecraft.server.v1_10_R1.EnumDirection;
+import net.minecraft.server.v1_10_R1.IBlockData;
+import net.minecraft.server.v1_10_R1.ISourceBlock;
+import net.minecraft.server.v1_10_R1.ItemDye;
+import net.minecraft.server.v1_10_R1.ItemStack;
+import net.minecraft.server.v1_10_R1.World;
 
 /**
  * CropDispenseBehavior for cocoa beans with additional handling for bonemeal and other dyes.
@@ -46,7 +46,7 @@ public class DyeDispenseBehavior extends CropDispenseBehavior {
 
 		// Bonemeal, see DispenserRegistry
 		final World world = isourceblock.getWorld();
-		final BlockPosition blockposition = isourceblock.getBlockPosition().shift(BlockDispenser.e(isourceblock.f()));
+		final BlockPosition blockposition = isourceblock.getBlockPosition().shift(isourceblock.e().get(BlockDispenser.FACING));
 		if (ItemDye.a(itemstack, world, blockposition)) {
 			if (!world.isClientSide) {
 				world.triggerEffect(2005, blockposition, 0);

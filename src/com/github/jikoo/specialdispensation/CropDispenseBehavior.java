@@ -3,18 +3,18 @@ package com.github.jikoo.specialdispensation;
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.util.Vector;
 
-import net.minecraft.server.v1_9_R2.Block;
-import net.minecraft.server.v1_9_R2.BlockDispenser;
-import net.minecraft.server.v1_9_R2.BlockPosition;
-import net.minecraft.server.v1_9_R2.DispenseBehaviorItem;
-import net.minecraft.server.v1_9_R2.EnumDirection;
-import net.minecraft.server.v1_9_R2.IBlockData;
-import net.minecraft.server.v1_9_R2.IDispenseBehavior;
-import net.minecraft.server.v1_9_R2.ISourceBlock;
-import net.minecraft.server.v1_9_R2.ItemStack;
-import net.minecraft.server.v1_9_R2.World;
+import net.minecraft.server.v1_10_R1.Block;
+import net.minecraft.server.v1_10_R1.BlockDispenser;
+import net.minecraft.server.v1_10_R1.BlockPosition;
+import net.minecraft.server.v1_10_R1.DispenseBehaviorItem;
+import net.minecraft.server.v1_10_R1.EnumDirection;
+import net.minecraft.server.v1_10_R1.IBlockData;
+import net.minecraft.server.v1_10_R1.IDispenseBehavior;
+import net.minecraft.server.v1_10_R1.ISourceBlock;
+import net.minecraft.server.v1_10_R1.ItemStack;
+import net.minecraft.server.v1_10_R1.World;
 
-import org.bukkit.craftbukkit.v1_9_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
 
 /**
  * IDispenseBehavior for crop planting.
@@ -82,7 +82,7 @@ public class CropDispenseBehavior extends DispenseBehaviorItem {
 
 	protected ItemStack handlePlanting(ISourceBlock isourceblock, ItemStack itemstack) {
 		World world = isourceblock.getWorld();
-		BlockPosition toCrop = isourceblock.getBlockPosition().shift(BlockDispenser.e(isourceblock.f()));
+		BlockPosition toCrop = isourceblock.getBlockPosition().shift(isourceblock.e().get(BlockDispenser.FACING));
 
 		if (toCrop.getY() < 1 || !world.isEmpty(toCrop)) {
 			this.b = false;
