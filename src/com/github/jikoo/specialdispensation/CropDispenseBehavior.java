@@ -3,18 +3,18 @@ package com.github.jikoo.specialdispensation;
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.util.Vector;
 
-import net.minecraft.server.v1_10_R1.Block;
-import net.minecraft.server.v1_10_R1.BlockDispenser;
-import net.minecraft.server.v1_10_R1.BlockPosition;
-import net.minecraft.server.v1_10_R1.DispenseBehaviorItem;
-import net.minecraft.server.v1_10_R1.EnumDirection;
-import net.minecraft.server.v1_10_R1.IBlockData;
-import net.minecraft.server.v1_10_R1.IDispenseBehavior;
-import net.minecraft.server.v1_10_R1.ISourceBlock;
-import net.minecraft.server.v1_10_R1.ItemStack;
-import net.minecraft.server.v1_10_R1.World;
+import net.minecraft.server.v1_11_R1.Block;
+import net.minecraft.server.v1_11_R1.BlockDispenser;
+import net.minecraft.server.v1_11_R1.BlockPosition;
+import net.minecraft.server.v1_11_R1.DispenseBehaviorItem;
+import net.minecraft.server.v1_11_R1.EnumDirection;
+import net.minecraft.server.v1_11_R1.IBlockData;
+import net.minecraft.server.v1_11_R1.IDispenseBehavior;
+import net.minecraft.server.v1_11_R1.ISourceBlock;
+import net.minecraft.server.v1_11_R1.ItemStack;
+import net.minecraft.server.v1_11_R1.World;
 
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
 
 /**
  * IDispenseBehavior for crop planting.
@@ -93,7 +93,7 @@ public class CropDispenseBehavior extends DispenseBehaviorItem {
 			if (!this.isSoil(world.getType(toCrop.shift(direction)))) {
 				continue;
 			}
-			--itemstack.count;
+			itemstack.subtract(1);
 			// Magic value 2: physics update flag - do block update, not comparators
 			world.setTypeAndData(toCrop, this.getBlockData(cropBlock, direction), 2);
 			this.b = true;

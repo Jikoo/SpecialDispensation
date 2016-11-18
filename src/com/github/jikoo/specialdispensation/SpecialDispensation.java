@@ -2,9 +2,9 @@ package com.github.jikoo.specialdispensation;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.minecraft.server.v1_10_R1.BlockDispenser;
-import net.minecraft.server.v1_10_R1.Blocks;
-import net.minecraft.server.v1_10_R1.Items;
+import net.minecraft.server.v1_11_R1.BlockDispenser;
+import net.minecraft.server.v1_11_R1.Blocks;
+import net.minecraft.server.v1_11_R1.Items;
 
 /**
  * Manual planting is for chumps.
